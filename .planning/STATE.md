@@ -2,13 +2,13 @@
 
 ## Current Position
 - **Phase:** 1
-- **Status:** Not started
+- **Status:** Complete
 
 ## Progress
 
 | Phase | Name | Status | Completion |
 |---:|---|---|---:|
-| 1 | Baseline planning + risk gates (P0-preserving) | Not started | 0% |
+| 1 | Baseline planning + risk gates (P0-preserving) | ✅ Complete | 100% |
 | 2 | Governance for controlled self-extension (skill-first) | Not started | 0% |
 | 3 | Additive integration of the controlled extension flow | Not started | 0% |
 | 4 | Pilot extension + hardening (prove the loop) | Not started | 0% |
