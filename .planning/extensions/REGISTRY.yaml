@@ -42,6 +42,30 @@ version: 1
 last_updated: "2026-02-18"
 
 extensions:
+  - id: "ext-skill-extension-verifier"
+    kind: "skill"
+    name: "extension-verifier"
+    purpose: >
+      Verifies that a new or updated extension in the JP Dynamic Agent System correctly completed
+      the full governance loop (EDR approved → registry active → wiring evidenced → P0 smoke checks
+      pass → tooling evidence captured) and produces auditable VERIFICATION.md evidence for the phase.
+    owner: "JP Dynamic Agent System"
+    status: "active"
+    scope: "Extension-loop verification — governance alignment, registry correctness, operational wiring evidence, P0 regression checks, and tooling host evidence capture"
+    wiring_targets:
+      - "Verifier"
+      - "Orchestrator"
+    edr: ".planning/extensions/edr/EDR-20260218-0002-extension-verifier.md"
+    source_path: ".github/skills/extension-verifier/"
+    created: "2026-02-18"
+    updated: "2026-02-18"
+    tags:
+      - "governance"
+      - "verification"
+      - "wiring"
+      - "p0"
+    depends_on: []
+
   - id: "ext-skill-extension-coordinator"
     kind: "skill"
     name: "extension-coordinator"
