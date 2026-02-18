@@ -1,3 +1,4 @@
+# PowerShell Script - Requires CRLF line endings and UTF-8 encoding (no BOM)
 # JP Dynamic Agent System (v2) Installation Script
 # Downloads essential files from GitHub to set up a new repository
 
