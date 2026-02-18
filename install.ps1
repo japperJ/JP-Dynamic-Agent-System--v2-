@@ -131,15 +131,16 @@ if ($SuccessCount -eq $FilesToDownload.Count) {
     Write-Host "  1. Initialize git repository: git init" -ForegroundColor White
     Write-Host "  2. Review and customize .github/agents/*.agent.md for your needs" -ForegroundColor White
     Write-Host "  3. Start planning your project with the Orchestrator agent" -ForegroundColor White
-    exit 0
 }
 elseif ($SuccessCount -gt 0) {
     Write-Host "⚠ Partial installation completed." -ForegroundColor Yellow
     Write-Host "Some files failed to download. Please check the errors above." -ForegroundColor Yellow
-    exit 1
 }
 else {
     Write-Host "✗ Installation failed!" -ForegroundColor Red
     Write-Host "No files were downloaded. Please check your internet connection and try again." -ForegroundColor Red
-    exit 1
 }
+
+# Pause to prevent terminal from closing
+Write-Host "`nPress any key to close..." -ForegroundColor Gray
+$null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
