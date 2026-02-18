@@ -35,24 +35,11 @@ $FilesToDownload = @(
     ".planning/extensions/DECISION_RULES.md",
     ".planning/extensions/WIRING_CONTRACT.md",
     ".planning/extensions/ADDITIVE_ONLY.md",
-    ".planning/extensions/edr/EDR-20260218-0001-extension-coordinator.md",
-    ".planning/extensions/edr/EDR-20260218-0002-extension-verifier.md",
     
     # Baseline
     ".planning/baseline/P0_INVARIANTS.yaml",
     ".planning/baseline/CHANGE_GATES.md",
-    ".planning/baseline/TOOL_FALLBACKS.md",
-    
-    # Research
-    ".planning/research/SUMMARY.md",
-    ".planning/research/ARCHITECTURE.md",
-    
-    # Planning
-    ".planning/REQUIREMENTS.md",
-    ".planning/ROADMAP.md",
-    
-    # Root
-    "README.md"
+    ".planning/baseline/TOOL_FALLBACKS.md"
 )
 
 Write-Host "`n╔══════════════════════════════════════════════════════════════╗" -ForegroundColor Cyan
@@ -127,11 +114,11 @@ Write-Host ""
 
 if ($SuccessCount -eq $FilesToDownload.Count) {
     Write-Host "✓ Installation complete! " -ForegroundColor Green -NoNewline
-    Write-Host "All essential files downloaded successfully." -ForegroundColor White
+    Write-Host "All essential framework files downloaded successfully." -ForegroundColor White
     Write-Host "`nNext steps:" -ForegroundColor Cyan
-    Write-Host "  1. Initialize git repository: git init" -ForegroundColor White
-    Write-Host "  2. Review and customize .github/agents/*.agent.md for your needs" -ForegroundColor White
-    Write-Host "  3. Start planning your project with the Orchestrator agent" -ForegroundColor White
+    Write-Host "  1. Start a new project by invoking the Orchestrator agent" -ForegroundColor White
+    Write-Host "  2. The agent will create project-specific .planning files as needed" -ForegroundColor White
+    Write-Host "  3. Customize .github/agents/*.agent.md for your workflow preferences" -ForegroundColor White
 }
 elseif ($SuccessCount -gt 0) {
     Write-Host "⚠ Partial installation completed." -ForegroundColor Yellow
