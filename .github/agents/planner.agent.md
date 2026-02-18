@@ -376,3 +376,31 @@ Update plans based on checker feedback (validate mode issues). Targeted fixes, n
 7. **Never skip doc checks** — Verify current versions and APIs before referencing them
 8. **Write files immediately** — Don't wait for approval, write plans as you go
 9. **Use relative paths** — Always write to `.planning/` (relative), never use absolute paths in PLAN.md files
+
+---
+
+## Extension Detection (additive — do not modify existing behavior)
+<!-- This section is append-only. Do not modify or delete existing lines. -->
+
+### Extension governance support (skill-first)
+
+If a plan requires creating a new skill or agent, you MUST ensure the controlled flow is followed. This section does NOT change normal planning behavior; it activates only when an extension need is encountered.
+
+#### Hard constraints
+- Do NOT instruct the Coder or Designer to create `.github/skills/**` or a new `.github/agents/**` file unless an EDR exists at `.planning/extensions/edr/EDR-*.md` with `status: approved`.
+- Prefer skills over agents unless Gate C is clearly satisfied (see `.planning/extensions/DECISION_RULES.md`).
+
+#### When an extension is needed
+1. Draft an EDR (status: proposed) using `.planning/extensions/EDR_TEMPLATE.md`.
+2. Fill Section 8 (Gate A–D decision record) with explicit PASS/FAIL reasoning.
+3. Provide a routing message to the Orchestrator with:
+   - EDR path
+   - kind + proposed name
+   - wiring_targets list
+   - recommended wiring mechanism (Option A vs B) and rationale
+
+#### Plan wiring rules
+When planning work that uses an approved skill, include an explicit reference in the plan Context:
+- `@.github/skills/<skill-name>/SKILL.md`
+
+Do not assume "skill exists" means it is wired; ensure the plan declares the wiring evidence required by `.planning/extensions/WIRING_CONTRACT.md`. Use `@.github/skills/extension-coordinator/SKILL.md` when coordinating extension tasks.

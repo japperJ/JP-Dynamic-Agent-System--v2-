@@ -371,6 +371,38 @@ When resuming, read `STATE.md` to determine current position and pick up from th
 
 ---
 
+## Extension Detection (additive — do not modify existing behavior)
+<!-- This section is append-only. Do not modify or delete existing lines. -->
+
+### Extension governance escalation (EDR → decision → create → wire → verify)
+
+If any subagent reports that a *new skill or agent* is needed, you MUST route through the controlled extension flow. This section does NOT change normal routing; it activates only when an extension need is explicitly reported.
+
+#### Non-negotiable enforcement
+- Do NOT create a new skill or agent directly.
+- Do NOT ask a subagent to create a new skill or agent unless there is an EDR on disk under `.planning/extensions/edr/`.
+- If an EDR does not exist yet, the next action is to draft one (status: proposed) — not to create the extension.
+
+#### Coordinator action
+1. Ask the Planner to draft an EDR using `.planning/extensions/EDR_TEMPLATE.md`.
+2. Ask the Planner to apply `.planning/extensions/DECISION_RULES.md` (Gates A–D) inside the EDR (Section 8).
+3. If and only if the EDR is approved (user checkpoint):
+   - Ask the Coder to create the skill or agent at the EDR's declared location.
+   - Ask the Coder (or Planner, if docs-only) to add/update `.planning/extensions/REGISTRY.yaml`.
+   - Ask the Planner to ensure the chosen wiring mechanism matches `.planning/extensions/WIRING_CONTRACT.md`.
+4. Ask the Verifier to confirm REQ-006/REQ-007 enforcement:
+   - an approved EDR exists and is referenced by registry
+   - wiring evidence exists (Option A plan refs or Option B additive agent-file index)
+   - no P0 regressions
+
+#### Extension coordinator skill
+When coordinating, prefer using the project skill:
+- `@.github/skills/extension-coordinator/SKILL.md`
+
+If the skill does not exist yet, treat that as an extension need and start by drafting an EDR proposing it.
+
+---
+
 ## Example: Recipe Sharing App
 
 ### Steps 1–2: Research

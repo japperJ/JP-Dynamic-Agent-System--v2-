@@ -255,3 +255,26 @@ Stage SUMMARY.md and STATE.md together, separate from task commits:
 7. **Match existing patterns** — Read surrounding code before writing new code
 8. **Fail loud** — If something doesn't work, don't silently skip it
 9. **Use relative paths** — Always write to `.planning/phases/` (relative), never use absolute paths
+
+---
+
+## Extension Detection (additive — do not modify existing behavior)
+<!-- This section is append-only. Do not modify or delete existing lines. -->
+
+### Controlled creation of new skills/agents (EDR required)
+
+If you believe a new skill or agent is needed while executing a plan, follow the stop/route rule below. This section does NOT change normal execution behavior; it activates only when you encounter a situation requiring a new extension.
+
+#### Stop/route rule
+- Do NOT create or modify `.github/skills/**` or add a new `.github/agents/**` file unless:
+  1) the current phase plan explicitly assigns that task, AND
+  2) an EDR exists under `.planning/extensions/edr/` with `status: approved`, AND
+  3) the change references the EDR path in the task context / commit summary.
+
+If any condition is not met, STOP and return a decision checkpoint to the Orchestrator describing the need and asking for the governed flow to be initiated via `@.github/skills/extension-coordinator/SKILL.md`.
+
+#### When approved and assigned
+If the plan assigns extension creation and the EDR is approved:
+- Follow `.planning/extensions/WIRING_CONTRACT.md` (registry + operational wiring evidence).
+- Treat any edit to `.github/agents/**` as high-risk and checkpoint-gated (see `.planning/baseline/CHANGE_GATES.md`, Gate 2).
+- Stage agent-file changes individually and verify P0 anchors in `.planning/baseline/P0_INVARIANTS.yaml` remain present before committing.

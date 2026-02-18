@@ -291,3 +291,27 @@ Consolidate multiple research outputs into a single coherent summary. Used after
 6. **Do NOT commit** — Only the Synthesize mode commits. Other modes write but don't commit.
 7. **You do NOT implement** — Research only. No code changes to the project.
 8. **Report honestly** — If a technology is wrong for the project, say so even if user suggested it
+
+---
+
+## Extension Detection (additive — do not modify existing behavior)
+<!-- This section is append-only. Do not modify or delete existing lines. -->
+
+### Detect extension needs (skill-first)
+
+During research, if you identify a repeatable workflow, checklist, or reference that would reduce future thrash by existing as a reusable skill, propose a *skill* (default) rather than an agent. This section does NOT change normal research behavior; it activates only when a genuine recurring gap is detected.
+
+#### What to do when you detect a need
+- Do NOT create `.github/skills/**` or `.github/agents/**` yourself unless the phase plan explicitly instructs it AND an approved EDR exists.
+- Instead, report the need to the Orchestrator with a concise extension proposal:
+
+**Extension Need Report (copy/paste format):**
+- Kind: skill | agent (default: skill)
+- Proposed name (skill dir / agent stem):
+- Problem/gap (observable):
+- Why existing agents/skills can't solve it:
+- Likely wiring targets (agent names):
+- Suggested operational wiring: Option A (plan refs) or Option B (agent-file index)
+- Risk level (low/medium/high) and why
+
+If an agent is proposed, you MUST reference `.planning/extensions/DECISION_RULES.md` Gate C justification conditions. The Orchestrator will coordinate the governed flow using `@.github/skills/extension-coordinator/SKILL.md`.
