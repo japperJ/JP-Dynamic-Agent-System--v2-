@@ -41,4 +41,29 @@
 version: 1
 last_updated: "2026-02-18"
 
-extensions: []
+extensions:
+  - id: "ext-skill-extension-coordinator"
+    kind: "skill"
+    name: "extension-coordinator"
+    purpose: >
+      Governs the controlled creation of new skills and agents in the JP Dynamic Agent System.
+      Provides a step-by-step EDR → Gate A–D decision → create → register → wire → verify playbook
+      that any agent can invoke when a repeatable workflow gap requires a new extension.
+    owner: "JP Dynamic Agent System"
+    status: "active"
+    scope: "Extension creation governance — the controlled flow for proposing, approving, creating, registering, wiring, and verifying new skills and agents"
+    wiring_targets:
+      - "Orchestrator"
+      - "Researcher"
+      - "Planner"
+      - "Coder"
+    edr: ".planning/extensions/edr/EDR-20260218-0001-extension-coordinator.md"
+    source_path: ".github/skills/extension-coordinator/"
+    created: "2026-02-18"
+    updated: "2026-02-18"
+    tags:
+      - "governance"
+      - "extension-lifecycle"
+      - "edr"
+      - "skill-first"
+    depends_on: []
