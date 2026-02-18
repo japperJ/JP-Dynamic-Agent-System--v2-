@@ -1,7 +1,7 @@
 ---
 name: Orchestrator
 description: JP Coordinates the full development lifecycle by delegating to subagents. Never implements directly.
-model: Claude Sonnet 4.5 (copilot)
+model: Claude Sonnet 4.6 (copilot)
 tools: ['read/readFile', 'agent', 'memory']
 ---
 
