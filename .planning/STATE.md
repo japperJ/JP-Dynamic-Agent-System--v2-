@@ -19,7 +19,7 @@ Record required user decisions here as execution proceeds.
 
 | Date | Phase | Decision Needed | Options | Outcome |
 |---|---:|---|---|---|
-| (TBD) | 1 | Tool availability mode | Reduced-capability (docs-only) vs enable settings/tools | (TBD) |
+| 2026-02-18 | 1 | Tool availability mode | Reduced-capability (docs-only) vs Standard vs Full | **Standard Capability Mode** — File read/write and terminal execution confirmed working. Context7/Memory not required for Phase 1 (docs-only). Fallbacks documented in TOOL_FALLBACKS.md. |
 | (TBD) | 3 | New agent justification | Skill-only vs create agent with defined tool boundary | (TBD) |
 | (TBD) | 3 | Skill wiring mechanism | Manifest/registry-based wiring vs agent-file references | (TBD) |
 
