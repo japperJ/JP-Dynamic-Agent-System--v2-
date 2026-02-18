@@ -55,18 +55,38 @@ JP Dynamic Agent System (v2) is a **multi-agent orchestration framework** for VS
 
 ### Installation
 
-1. **Clone or copy the system to your repository:**
+Two install scripts are provided — choose the one for your platform:
 
-```bash
-# Copy these folders to your project root:
-.github/
-  agents/           # 7 core agents
-  skills/           # Governance skills (extension-coordinator, extension-verifier)
-
-.planning/
-  extensions/       # Governance system (EDR template, registry, rules)
-  baseline/         # P0 safety checks and invariants
+**Windows (PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/japperJ/JP-Dynamic-Agent-System--v2-/main/install.ps1 | iex
 ```
+Or download and run locally:
+```powershell
+.\install.ps1
+# Optional: install to a specific directory
+.\install.ps1 -TargetPath "C:\MyProject"
+```
+
+**macOS / Linux (Bash):**
+```bash
+curl -fsSL https://raw.githubusercontent.com/japperJ/JP-Dynamic-Agent-System--v2-/main/install.sh | bash
+```
+Or download and run locally:
+```bash
+chmod +x install.sh
+./install.sh
+# Optional: install to a specific directory
+./install.sh --target /path/to/myproject
+```
+
+Both scripts download the following framework files into your project:
+- `.github/agents/` — 7 core agent definitions
+- `.github/skills/` — Extension governance skills
+- `.planning/extensions/` — EDR template, registry, decision rules
+- `.planning/baseline/` — P0 invariants and safety gates
+
+> **Note:** Project-specific files (ROADMAP.md, REQUIREMENTS.md, research files) are **not** downloaded — the Orchestrator agent generates these fresh for each project.
 
 2. **Customize for your project:**
 
