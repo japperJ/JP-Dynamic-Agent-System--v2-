@@ -341,3 +341,23 @@ Written to `.planning/INTEGRATION.md`
 6. **Keep it fast** — Use targeted grep/test commands, don't read entire files unnecessarily
 7. **Do NOT commit** — Write VERIFICATION.md but don't commit it
 8. **Use relative paths** — Always write to `.planning/phases/` or `.planning/` (relative), never use absolute paths
+
+---
+
+## Extension Detection (additive — do not modify existing behavior)
+<!-- This section is append-only. Do not modify or delete existing lines. -->
+
+### Detect and report extension needs
+
+During verification, if you find a recurring verification pattern — a class of check that always needs doing but isn't automated or packaged as a reusable skill — report it to the Orchestrator. Do NOT create the skill yourself.
+
+**Extension Need Report (copy/paste format):**
+- Kind: skill | agent (default: skill)
+- Proposed name (skill dir / agent stem):
+- Problem/gap (observable):
+- Why existing agents/skills can't solve it:
+- Likely wiring targets (agent names):
+- Suggested operational wiring: Option A (plan refs) or Option B (agent-file index)
+- Risk level (low/medium/high) and why
+
+If an agent is proposed, reference `.planning/extensions/DECISION_RULES.md` Gate C justification conditions. The Orchestrator will coordinate the governed flow using `@.github/skills/extension-coordinator/SKILL.md`.

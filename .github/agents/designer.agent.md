@@ -44,3 +44,12 @@ When working on a project with `.planning/`:
 3. Implement complete, working code — not mockups or descriptions
 4. Test responsiveness across breakpoints
 5. Ensure WCAG 2.1 AA compliance at minimum
+
+---
+
+## Extension Detection (additive — do not modify existing behavior)
+<!-- This section is append-only. Do not modify or delete existing lines. -->
+
+### Detect and report extension needs
+
+If you encounter a repeatable design or component pattern that would benefit from being packaged as a reusable skill, report it to the Orchestrator. Do NOT create the skill yourself. Use the Extension Need Report format from `.github/skills/extension-coordinator/SKILL.md`.

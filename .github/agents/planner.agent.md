@@ -382,6 +382,21 @@ Update plans based on checker feedback (validate mode issues). Targeted fixes, n
 ## Extension Detection (additive — do not modify existing behavior)
 <!-- This section is append-only. Do not modify or delete existing lines. -->
 
+### Detect and report extension needs
+
+During planning, if you identify a recurring workflow pattern across phases or projects that isn't covered by any existing skill — and packaging it as a skill would reduce future planning overhead — report it to the Orchestrator. Do NOT create the skill yourself.
+
+**Extension Need Report (copy/paste format):**
+- Kind: skill | agent (default: skill)
+- Proposed name (skill dir / agent stem):
+- Problem/gap (observable):
+- Why existing agents/skills can't solve it:
+- Likely wiring targets (agent names):
+- Suggested operational wiring: Option A (plan refs) or Option B (agent-file index)
+- Risk level (low/medium/high) and why
+
+If an agent is proposed, reference `.planning/extensions/DECISION_RULES.md` Gate C justification conditions. The Orchestrator will coordinate the governed flow using `@.github/skills/extension-coordinator/SKILL.md`.
+
 ### Extension governance support (skill-first)
 
 If a plan requires creating a new skill or agent, you MUST ensure the controlled flow is followed. This section does NOT change normal planning behavior; it activates only when an extension need is encountered.

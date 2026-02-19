@@ -386,3 +386,23 @@ Return a checkpoint when:
 7. **At least 2 hypotheses** — Never go down a single path
 8. **Commit only fixes** — Don't commit debug logging or temporary changes
 9. **Use relative paths** — Always write to `.planning/debug/` (relative), never use absolute paths
+
+---
+
+## Extension Detection (additive — do not modify existing behavior)
+<!-- This section is append-only. Do not modify or delete existing lines. -->
+
+### Detect and report extension needs
+
+During debugging, if you repeatedly encounter the same class of bug or investigation pattern across sessions — and packaging it as a reusable diagnostic skill or runbook would reduce future debug time — report it to the Orchestrator. Do NOT create the skill yourself.
+
+**Extension Need Report (copy/paste format):**
+- Kind: skill | agent (default: skill)
+- Proposed name (skill dir / agent stem):
+- Problem/gap (observable):
+- Why existing agents/skills can't solve it:
+- Likely wiring targets (agent names):
+- Suggested operational wiring: Option A (plan refs) or Option B (agent-file index)
+- Risk level (low/medium/high) and why
+
+If an agent is proposed, reference `.planning/extensions/DECISION_RULES.md` Gate C justification conditions. The Orchestrator will coordinate the governed flow using `@.github/skills/extension-coordinator/SKILL.md`.

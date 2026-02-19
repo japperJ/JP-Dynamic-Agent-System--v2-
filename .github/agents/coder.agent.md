@@ -261,6 +261,21 @@ Stage SUMMARY.md and STATE.md together, separate from task commits:
 ## Extension Detection (additive — do not modify existing behavior)
 <!-- This section is append-only. Do not modify or delete existing lines. -->
 
+### Detect and report extension needs
+
+During execution, if you encounter a repeatable implementation pattern that isn't covered by any existing skill — and packaging it as a skill would measurably reduce future thrash — report it to the Orchestrator. Do NOT create the skill yourself.
+
+**Extension Need Report (copy/paste format):**
+- Kind: skill | agent (default: skill)
+- Proposed name (skill dir / agent stem):
+- Problem/gap (observable):
+- Why existing agents/skills can't solve it:
+- Likely wiring targets (agent names):
+- Suggested operational wiring: Option A (plan refs) or Option B (agent-file index)
+- Risk level (low/medium/high) and why
+
+If an agent is proposed, reference `.planning/extensions/DECISION_RULES.md` Gate C justification conditions. The Orchestrator will coordinate the governed flow using `@.github/skills/extension-coordinator/SKILL.md`.
+
 ### Controlled creation of new skills/agents (EDR required)
 
 If you believe a new skill or agent is needed while executing a plan, follow the stop/route rule below. This section does NOT change normal execution behavior; it activates only when you encounter a situation requiring a new extension.
